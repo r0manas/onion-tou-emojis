@@ -169,4 +169,22 @@
     <img src="https://raw.githubusercontent.com/r0manas/onion-tou-emojis/main/onion-tou-gif/onion-160.gif">
   </div>
 </body>
+<script>
+  function copy(e) {
+    e = e || window.event;
+    var textArea = document.createElement("textArea");
+    textArea.value = e.src;
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      var success = document.execCommand("copy");
+      var msg = success ? "successfully" : "unsuccessfully";
+      document.getElementById("status").innerHTML = "Image copied " + msg;
+    } catch (err) {
+      document.getElementById("status").innerHTML += " " + err;
+    }
+    document.body.removeChild(textArea);
+  }
+</script>  
 </html>
